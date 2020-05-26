@@ -12,7 +12,7 @@ public class Program {
 		Frame frame=new Frame("Hello AWT World");
 		frame.setSize(800,600);
 		
-		//frame.setLayout(new BorderLayout()); //default layout
+		frame.setLayout(new BorderLayout()); //default layout
 		
 		Button north=new Button("North");
 		Button south=new Button("South");
