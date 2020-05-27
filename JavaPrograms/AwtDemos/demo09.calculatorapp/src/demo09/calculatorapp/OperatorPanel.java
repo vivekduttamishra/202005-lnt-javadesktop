@@ -24,7 +24,7 @@ public class OperatorPanel extends Panel implements ActionListener {
 	public OperatorPanel() {
 	
 		this.setLayout(new GridLayout(5,1));		
-		String [] values= {"%","*","-","+","="};
+		String [] values= {"/","*","-","+","="};
 		String space="       ";
 		
 		for(String value :values) {

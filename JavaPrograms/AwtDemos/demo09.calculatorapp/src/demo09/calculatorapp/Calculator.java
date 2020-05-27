@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 
@@ -17,6 +18,7 @@ public class Calculator {
 	DisplayPanel displayPanel;
 	DigitPanel digitPanel;
 	OperatorPanel operatorPanel;
+	ClearPanel clearPanel;
 	CalculatorBrain calculatorBrain;
 	
 	
@@ -37,8 +39,22 @@ public class Calculator {
 		calculatorBrain=new CalculatorBrain();
 		
 		
+		
 		displayPanel=new DisplayPanel();
-		calculatorWindow.add(displayPanel, BorderLayout.NORTH);
+//		calculatorWindow.add(displayPanel,BorderLayout.NORTH);
+		
+		clearPanel=new ClearPanel();
+		clearPanel.setControlListner(calculatorBrain);
+		
+		Panel northPanel=new Panel();
+		northPanel.setLayout(new BorderLayout());
+		northPanel.add(displayPanel,BorderLayout.CENTER);
+		northPanel.add(clearPanel,BorderLayout.SOUTH);
+		
+		calculatorWindow.add(northPanel,BorderLayout.NORTH);
+		
+		
+		
 		
 		digitPanel=new DigitPanel();
 		digitPanel.setDigitClickListner(calculatorBrain); //inform calculator brain that digit is clicked

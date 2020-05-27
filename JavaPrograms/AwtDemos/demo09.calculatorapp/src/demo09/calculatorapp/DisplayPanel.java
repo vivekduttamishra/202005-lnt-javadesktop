@@ -13,10 +13,13 @@ public class DisplayPanel extends Panel implements DisplayChangeListener{
 	Label screen;
 	public DisplayPanel() {
 		screen=new Label("0",Label.RIGHT); //align text to the right
-		screen.setFont( new Font("Courier", Font.BOLD, 20));		
+		screen.setFont( new Font("Courier", Font.BOLD, 30));		
 		screen.setBackground( new Color(220, 220, 220));
 		this.setLayout(new BorderLayout());
 		this.add(screen);
+		//Clear Panel is not a part of Display
+		//Clear is input, Display is output
+		//this.add(new ClearPanel(), BorderLayout.SOUTH);
 	}
 
 	@Override
