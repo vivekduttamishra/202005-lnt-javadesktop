@@ -15,6 +15,7 @@ public class Program {
 //		frame.setVisible(true);
 		
 		//Step1 — Controller of a SWT application and its window
+		//			You can conceptually consider it as the Screen (Main Display)
 		Display display=new Display();
 		
 		//Step2 — Create A Shell (similar to AWT Frame)

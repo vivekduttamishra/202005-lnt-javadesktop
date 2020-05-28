@@ -20,6 +20,7 @@ public class AppUiBuilder {
 		shell.setText("My SWT Application");
 		
 		//set the layout of a composite
+		//similar to the flow layout of Java AWT
 		RowLayout layout=new RowLayout(SWT.HORIZONTAL);
 		//layout.justify=true;
 		layout.marginLeft=200;

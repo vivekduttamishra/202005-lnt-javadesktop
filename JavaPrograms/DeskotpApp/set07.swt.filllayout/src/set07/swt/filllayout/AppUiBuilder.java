@@ -3,6 +3,7 @@ package set07.swt.filllayout;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Shell;
 
@@ -23,6 +24,8 @@ public class AppUiBuilder {
 		layout.marginWidth=50;
 		layout.marginHeight=100;
 		layout.spacing=20;
+		
+		//RowLayout layout=new RowLayout();
 		
 		shell.setLayout(layout);
 		

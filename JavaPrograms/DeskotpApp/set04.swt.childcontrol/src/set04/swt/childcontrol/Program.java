@@ -12,10 +12,12 @@ public class Program {
 		
 		Shell shell=new Shell(display);
 		
+		//shell has no layout —> you can place and size your controls the way you like
 		
+		//You don't add button to shell, you tell button about its parent
 		Button myButton=new Button(shell, 0);
 		myButton.setText("Greet");
-		myButton.setBounds(10, 80, 150, 80);
+		myButton.setBounds(10, 80, 150, 80);  //manual placement and sizing fo the controls
 		
 		Button quitButton=new Button(shell,0);
 		quitButton.setText("I Quit");

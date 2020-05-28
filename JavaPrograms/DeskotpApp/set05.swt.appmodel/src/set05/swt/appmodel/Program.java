@@ -9,14 +9,13 @@ public class Program {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Application app=Application.instance;
-		Shell shell=app.getShell();
+		Application
+			.instance
+			.setTitle("My SWT Application")
+			.build(new AppUiBuilder())
+			.center()
+			.run();
 		
-		new AppUiBuilder(shell).build();
-		
-		
-		
-		app.run();
 	}
 
 }
