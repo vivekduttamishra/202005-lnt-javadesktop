@@ -36,17 +36,17 @@ public class EmailFormBuilder implements UIBuilder {
 		
 		
 		Label fromLabel = builder.label("From").get(Label.class);
-		Text fromTextBox = builder.text().get(Text.class);
+		Text fromTextBox = builder.textField().get(Text.class);
 		
 		Label toLabel = builder.label("To").get(Label.class);
-		Text toTextBox = builder.text().get(Text.class);
+		Text toTextBox = builder.textField().get(Text.class);
 		
 		Label subjectLabel = builder.label("Subject").get(Label.class);
-		Text subjectTextBox = builder.text().get(Text.class);
+		Text subjectTextBox = builder.textField().get(Text.class);
 		
 		
 		Label messageLabel = builder.label("Message").get(Label.class);
-		Text messageTextBox = builder.text().get(Text.class);
+		Text messageTextBox = builder.textField().get(Text.class);
 		
 		Button sendCopyCheckBox= builder.checkBox("Send Me A Copy").get(Button.class);
 		
@@ -74,7 +74,8 @@ public class EmailFormBuilder implements UIBuilder {
 		sendButton.setLayoutData(sendButtonData);
 		
 		
-				
+		//ASSIGNMENT — complete the form and create Form Data Helper
+		//Form.data().left(fromLabel,0).top(formLabel,20).apply(toLabel);
 		
 		
 		

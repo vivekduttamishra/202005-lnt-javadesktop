@@ -2,8 +2,10 @@ package in.conceptarchitect.swt;
 
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -53,12 +55,36 @@ public class ControlBuilder {
 		
 	}
 	
-	public ControlBuilder text() {
+	public ControlBuilder textField() {
 		Text text=new Text(parent,SWT.LEFT|SWT.BORDER);
 		control=text;
 		return this;
 	}
 	
+	public ControlBuilder textArea() {
+		Text text=new Text(parent,SWT.LEFT|SWT.BORDER|SWT.MULTI);
+		control=text;
+		return this;
+	}
+	
+	
+	public ControlBuilder combo(int selected, String ...values) {
+		Combo c=new Combo(parent,  SWT.DROP_DOWN);
+		for(String value : values)
+			c.add(value);
+		c.select(selected);
+		control=c;
+		return this;
+	}
+	
+	public ControlBuilder combo( String ...values) {
+		Combo c=new Combo(parent,  SWT.DROP_DOWN);
+		for(String value : values)
+			c.add(value);
+		
+		control=c;
+		return this;
+	}
 	
 	
 	public ControlBuilder setLayoutData(Object data) {
