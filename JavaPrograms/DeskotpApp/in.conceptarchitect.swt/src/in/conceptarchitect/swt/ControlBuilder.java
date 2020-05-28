@@ -7,6 +7,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 
 
@@ -51,6 +52,14 @@ public class ControlBuilder {
 		return this;
 		
 	}
+	
+	public ControlBuilder text() {
+		Text text=new Text(parent,SWT.LEFT|SWT.BORDER);
+		control=text;
+		return this;
+	}
+	
+	
 	
 	public ControlBuilder setLayoutData(Object data) {
 		control.setLayoutData(data);
