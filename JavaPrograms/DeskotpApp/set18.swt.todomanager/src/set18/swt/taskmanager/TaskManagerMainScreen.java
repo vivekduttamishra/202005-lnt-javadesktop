@@ -1,4 +1,4 @@
-package set17.swt.todomanager;
+package set18.swt.taskmanager;
 
 
 
@@ -21,7 +21,7 @@ import in.conceptarchitect.swt.ControlBuilder;
 import in.conceptarchitect.swt.MessageDialog;
 import in.conceptarchitect.swt.UIBuilder;
 
-public class TodoMainScreen implements UIBuilder {
+public class TaskManagerMainScreen implements UIBuilder {
 
 	ControlBuilder builder;
 	
@@ -32,9 +32,9 @@ public class TodoMainScreen implements UIBuilder {
 	public void build(Composite parent) {
 		
 		builder=new ControlBuilder(parent);
-		parent.setSize(600,400);
+		parent.setSize(900,600);
 		buildMenu(parent);
-		buildToolbar((Shell) parent);
+		//buildToolbar((Shell) parent);
 		
 	}
 

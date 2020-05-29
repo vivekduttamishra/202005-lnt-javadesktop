@@ -2,6 +2,8 @@ package in.conceptarchitect.swt;
 
 
 
+import java.util.HashMap;
+
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -11,6 +13,18 @@ public class Application {
 	
 	Shell shell;
 	Display display;
+	
+	HashMap<String,Object> services=new HashMap<>();
+	
+	public Application addService(String name, Object service) {
+		services.put(name, service);
+		return this;
+	}
+	
+	public <E> E getService(String name, Class<E> type) {
+		return (E)services.get(name);
+	}
+	
 	
 	private Application() {
 		
