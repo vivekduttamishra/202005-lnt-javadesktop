@@ -7,6 +7,7 @@ package set18.swt.taskmanager.ui;
 
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
@@ -15,6 +16,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
@@ -72,9 +74,18 @@ public class TaskManagerMainScreen implements UIBuilder {
 		toolBar.setLayoutData(Grid.data().horizontalStretch().get());
 		
 		
-		Composite tableContainer=new Composite(parent, 0);
+		SashForm splitter=new SashForm(parent, SWT.VERTICAL);
+		splitter.setLayoutData(Grid.data().stretch().grab().get());
+		
+		Composite tableContainer=new Composite(splitter,SWT.BORDER);
+		tableContainer.setLayout(new FillLayout());
 		tableContainer.setBackground(new Color(Display.getCurrent(), new RGB(200,100,0)));
-		tableContainer.setLayoutData(Grid.data().stretch().grab().get());
+		
+		Composite taskEditPane=new Composite(splitter, 0);
+		taskEditPane.setLayout(new FillLayout());
+		Label label=new Label(taskEditPane,SWT.CENTER);
+		label.setText("TODO: New Task Editor");
+		
 		
 		new TaskListScreen(projectManager.getTasks())
 			.build(tableContainer);
