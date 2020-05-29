@@ -8,8 +8,16 @@ import java.util.Collection;
 
 public class ProjectManager {
 	
-	Project project;
+	Project project=new Project("dummy","dummy");
 	
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	public boolean createProject(String name, String password, boolean ignoreExisting ) {
 		if(project!=null && !ignoreExisting)
 			return false; //can't create a new project till I close the current one

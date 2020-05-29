@@ -8,6 +8,8 @@ public class Task {
 	
 	int id;
 	String title;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -124,6 +126,16 @@ public class Task {
 
 	public void setSubTasks(List<Task> subTasks) {
 		this.subTasks = subTasks;
+	}
+
+	public void addSubTask(Task task) {
+		// TODO Auto-generated method stub
+		if(task.id>0) {
+			
+			task.parent=this;
+			subTasks.add(task);
+			
+		}
 	}
 	
 	

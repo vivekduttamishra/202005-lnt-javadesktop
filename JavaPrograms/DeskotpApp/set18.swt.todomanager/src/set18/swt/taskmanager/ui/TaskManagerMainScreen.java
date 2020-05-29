@@ -1,11 +1,17 @@
-package set18.swt.taskmanager;
+package set18.swt.taskmanager.ui;
+
+
 
 
 
 
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -18,28 +24,65 @@ import org.eclipse.swt.widgets.ToolItem;
 
 import in.conceptarchitect.swt.Application;
 import in.conceptarchitect.swt.ControlBuilder;
+import in.conceptarchitect.swt.Grid;
 import in.conceptarchitect.swt.MessageDialog;
 import in.conceptarchitect.swt.UIBuilder;
+import in.conceptarchitect.taskmanager.model.DummyProjectSource;
+import in.conceptarchitect.taskmanager.model.ProjectManager;
 
 public class TaskManagerMainScreen implements UIBuilder {
 
 	ControlBuilder builder;
 	
-	String imageBasePath="C:\\MyWorks\\Corporate\\202005-lnt-javadesktop\\images\\";
+	String imageBasePath="/images/";
+
+	ProjectManager projectManager;
+	
+	public TaskManagerMainScreen() {
+		// TODO Auto-generated constructor stub
+		projectManager=Application.instance.getService("project-manager", ProjectManager.class);
+		
+
+		//NOT for final version. Just Testing
+		//Remove this code from the production
+		addDummyData();
+		
+	}
+
+
+	private void addDummyData() {
+		DummyProjectSource source=Application.instance.getService("dummy-project-source", DummyProjectSource.class);
+		source.addTasks(projectManager);
+	}
 	
 
 	@Override
 	public void build(Composite parent) {
 		
 		builder=new ControlBuilder(parent);
+		
 		parent.setSize(900,600);
-		buildMenu(parent);
-		//buildToolbar((Shell) parent);
+		GridLayout layout=new GridLayout();
+		layout.numColumns=1;
+		parent.setLayout(layout);
+		
+		
+		buildMenu(parent);		
+		ToolBar toolBar = buildToolbar((Shell) parent);
+		toolBar.setLayoutData(Grid.data().horizontalStretch().get());
+		
+		
+		Composite tableContainer=new Composite(parent, 0);
+		tableContainer.setBackground(new Color(Display.getCurrent(), new RGB(200,100,0)));
+		tableContainer.setLayoutData(Grid.data().stretch().grab().get());
+		
+		new TaskListScreen(projectManager.getTasks())
+			.build(tableContainer);
 		
 	}
 
 
-	private void buildToolbar(Shell shell) {
+	private ToolBar buildToolbar(Shell shell) {
 		
 		
 		
@@ -47,29 +90,34 @@ public class TaskManagerMainScreen implements UIBuilder {
 		
 		
 		// TODO Auto-generated method stub
-		ToolBar toolBar=new ToolBar(shell, SWT.BORDER);
-	
+		ToolBar toolBar=new ToolBar(shell, SWT.BORDER|SWT.HORIZONTAL|SWT.WRAP);
+		GridLayout grid=new GridLayout();
+		grid.numColumns=5;
+		grid.makeColumnsEqualWidth=true;
+		grid.horizontalSpacing=5;
+		//toolBar.setLayout(grid);
+		toolBar.setSize(300,40);
+		
+		
 		ToolItem newTask=new ToolItem(toolBar, SWT.PUSH);
-		//newTask.setText("+Task");
-		newTask.setImage(image("add-icon2.jpg"));
-		
-		
+		newTask.setImage(image("add-icon.jpg"));
+
 		
 		ToolItem removeTask=new ToolItem(toolBar, SWT.PUSH);
-		removeTask.setImage(image("delete.jpg"));
-		
-		
-		
+		removeTask.setImage(image("eraser.jpg"));
 		
 		
 		toolBar.pack();
+		
+		return toolBar;
 		
 	}
 
 
 	private Image image(String name) {
+		
 		Display display=Display.getCurrent();
-		Image image=new Image(display,imageBasePath+name);
+		Image image=new Image(display, Program.class.getResourceAsStream(imageBasePath+name));
 		
 		return image;
 	}
