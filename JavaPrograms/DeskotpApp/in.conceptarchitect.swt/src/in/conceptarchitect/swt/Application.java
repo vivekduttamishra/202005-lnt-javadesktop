@@ -74,6 +74,11 @@ public class Application {
 		shell.setText(title);
 		return this;
 	}
+	
+	public Application packShell() {
+		shell.pack();
+		return this;
+	}
 
 	public void run() {
 		shell.setVisible(true);

@@ -150,6 +150,9 @@ public class EmailFormBuilder implements UIBuilder {
 				String message= messageTextBox.getText();
 				boolean selfCopy=sendCopyCheckBox.getSelection();
 				
+				
+				
+				
 				System.out.printf("Sending message from %s to %s\n",from,to);
 				System.out.println("Subject:"+subject);
 				System.out.append("Message is :"+message);
