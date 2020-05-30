@@ -69,7 +69,7 @@ public class DecoratorTest {
 		//Image decorationImage=FieldDecorationRegistry.getDefault().getFieldDecoration(FieldDecorationRegistry.DEC_INFORMATION).getImage();
 		LocalResourceManager  resourceManager=new LocalResourceManager(JFaceResources.getResources(), shell);
 		ImageDescriptor descriptor= ImageDescriptor.createFromFile(getClass(), "/set21/jface/decorator/images/checkit.png");
-		
+		Image decorationImage=resourceManager.createImage(descriptor);
 		
 		Image warningImage= FieldDecorationRegistry.getDefault()
 								.getFieldDecoration(FieldDecorationRegistry.DEC_ERROR)
@@ -81,7 +81,7 @@ public class DecoratorTest {
 								.getImage();
 		
 		
-		Image decorationImage=resourceManager.createImage(descriptor);
+		
 		
 		controlDecoration.setDescriptionText("This Field is Mandatory");
 		controlDecoration.setImage(requiredImage);

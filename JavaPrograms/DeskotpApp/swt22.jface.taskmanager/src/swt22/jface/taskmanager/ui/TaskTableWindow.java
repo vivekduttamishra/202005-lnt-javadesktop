@@ -108,14 +108,14 @@ public class TaskTableWindow {
 		//You can set label and content provider to power the table
 		TaskTableDetailsProvider provider=new TaskTableDetailsProvider();
 		
-		tableViewer.setContentProvider(provider);
-		tableViewer.setLabelProvider(provider);
+		tableViewer.setContentProvider(provider);  // is a input to the TableViewer
+		tableViewer.setLabelProvider(provider);    // value provider for the Table
 		
 		
 		//Now Feed the data
 		tableViewer.setInput(manager.getTasks());
 		
-		//tableViewer.setLabelProvider(labelProvider); //who will provide the Label for Table (Column Details)
+		//tableViewer.setLabelProvider(labelProvider); //the value
 		//tableViewer.setContentProvider(provider); //who will provide actual data for the table
 		
 		
