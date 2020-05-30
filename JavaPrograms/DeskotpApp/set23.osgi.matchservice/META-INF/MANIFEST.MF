@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Matchservice
+Bundle-SymbolicName: set23.osgi.matchservice
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: set23.osgi.matchservice.Activator
+Bundle-Vendor: conceptdesiger
+Bundle-RequiredExecutionEnvironment: JavaSE-10
+Import-Package: org.osgi.framework;version="1.3.0"
+Automatic-Module-Name: set23.osgi.matchservice
+Export-Package: set23.osgi.matchservice.contract,
+ set23.osgi.matchservice.external
